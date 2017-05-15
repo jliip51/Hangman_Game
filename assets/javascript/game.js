@@ -35,7 +35,7 @@ var remainingLetters = 0;
 		console.log(word);
 	};
 
-	document.onkeyup = function(event) {
+	document.onkeyup = function(e) {
 		play();
 	};
 
