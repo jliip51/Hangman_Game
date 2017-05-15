@@ -1,0 +1,67 @@
+html {
+	height: 100%;
+}
+
+#customMast {
+background-image: url(../images/west_masthead.png);
+margin-bottom: 0;
+background-color: #2a5a92;
+}
+
+.jumbotron .container {
+	width: 100%;
+}
+
+#customTitle {
+	font-family: 'Rye', cursive ;
+	font-size: 90px;
+	color: #b9964f;
+	padding-top: 50px;
+}
+
+#messageRow {
+	font-family: 'Smokum', cursive;
+	color: #eacb9c;
+	background-color: #902d12;
+}
+
+#instruction {
+	font-family: 'Smokum', cursive;
+	font-size: 32px;
+	padding-top: 10px;
+	background-color: #902d12;
+}
+
+#blanks {
+	font-family: 'Arbutus', cursive;
+	margin-top: 50px;
+	font-size: 72px;
+	font-weight: bold;
+	color: #511c33;
+}
+
+#remaining {
+	font-family: 'Arbutus', cursive;
+	font-size: 24px;
+	color: #212227;
+}
+
+#ContentRow {
+	height: 100%;
+}
+#img-tnt {
+	width: 150px;
+	height: auto;
+	visibility: hidden;
+	position: relative;
+}
+
+#bullet {
+	width: 60px;
+	height: auto;
+	position: absolute;
+	bottom: 100px;
+	left: 360px;
+	visibility: hidden;
+}
+

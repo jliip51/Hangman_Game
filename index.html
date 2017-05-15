@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>??? Hangman</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Arbutus|Rye|Smokum" rel="stylesheet">
+</head>
+
+<body>
+	<div id="customMast" class="jumbotron">
+		<div class="container">
+			<h1 id="customTitle" class="text-center">Wild West Hangman</h1>
+			<br>
+			<button id="start" type="button" class="btn btn-success btn-lg center-block"><span id="btn_name">Press Button To Start</span></button>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div id="messageRow" class="row">
+			<p id="instruction" class="text-center"></p>
+		</div>
+		<div id="contentRow" class="row">
+		 	<div class="col-sm-6">
+				<p id="blanks" class="text-center"></p>
+				<br>
+				<p id="remaining" class="text-center"></p>
+				<br>
+				<p id="guess" class="text-center"></p>
+			</div>
+			<div class="col-sm-6">
+				<img id="img-tnt" class="center-block" src="assets/images/tnt.png" alt="tnt-dynomite">
+				<img id="bullet" class="center-block" src="assets/images/bullet_hole.png" alt="bullet hole">
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
+
+
+</body>
+</html>
