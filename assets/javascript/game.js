@@ -3,6 +3,7 @@ var words = ["cactus", "horse", "whip", "pistol", "badge", "duel", "fight", "rob
 var word = "";
 var blanks = [];
 var userGuess = "";
+var guessBank = [];
 var message = "";
 var guessesLeft = 0;
 var remainingLetters = 0;
@@ -23,13 +24,36 @@ var remainingLetters = 0;
 
 	function setBoard(){
 		guessesLeft = 10;
+        guessBank.length = 0;
 		document.getElementById("remaining").innerHTML = "Remaining Fuse: " + guessesLeft;
+        document.getElementById("guess").innerHTML = guessBank;
 		document.getElementById("start").style.visibility = "hidden";
         document.getElementById("bullet").style.visibility = "hidden";
         document.getElementById("boom").style.visibility = "hidden";
 		document.getElementById("img-tnt").style.visibility = "visible";
 		document.getElementById("instruction").innerHTML = "Let's Go Russle Up Some Letters";
 	};
+
+    function wrongLetter() {
+        message = "Ain't No " + userGuess + "'s" + " Round These Parts.";
+        guessesLeft--;
+        document.getElementById("remaining").innerHTML = "Remaining Fuse: " + guessesLeft;
+    };
+
+    function win() {
+        message = "You Guessed " + word + "." + " Just In The Nick Of Time!";
+        document.getElementById("btn_name").innerHTML = "Play Again";
+        document.getElementById("start").style.visibility = "visible";
+        document.getElementById("bullet").style.visibility = "visible";
+    };
+
+    function lose() {
+        message = "GAME OVER";
+        document.getElementById("btn_name").innerHTML = "Try Again";
+        document.getElementById("img-tnt").style.visibility = "hidden";
+        document.getElementById("boom").style.visibility = "visible";
+        document.getElementById("start").style.visibility = "visible";
+    };
 
 	document.getElementById("start").onclick = function() {
 		randomWord();
@@ -41,6 +65,7 @@ var remainingLetters = 0;
 	document.onkeyup = function(event) {
 
 	userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+    guessBank.push(userGuess);
 	message = "";
 
   	if (userGuess.length !== 1) {
@@ -58,35 +83,23 @@ var remainingLetters = 0;
         remainingLetters = blanks.length;
         for (i = 0; i < blanks.length; i++) {
             if (blanks[i] !== '_') {
-                remainingLetters -= 1;
+            remainingLetters -= 1;
             }
         }
 
         if (message === "") {
-            message = "Ain't No " + userGuess + "'s" + " Round These Parts.";
-           	guessesLeft--;
-           	document.getElementById("remaining").innerHTML = "Remaining Fuse: " + guessesLeft;
+            wrongLetter();
         }
 
         if (remainingLetters == 0) {
-            message = "You Guessed " + word + "." + " Just In The Nick Of Time!";
-            document.getElementById("btn_name").innerHTML = "Play Again";
-            document.getElementById("start").style.visibility = "visible";
-            document.getElementById("bullet").style.visibility = "visible";
-     	
-        }
+            win();
+     	}
 
         if (guessesLeft === 0) {
-        	message = "GAME OVER";
-        	document.getElementById("btn_name").innerHTML = "Try Again";
-            document.getElementById("img-tnt").style.visibility = "hidden";
-            document.getElementById("boom").style.visibility = "visible";
-            document.getElementById("start").style.visibility = "visible";
-
+            lose();
         }
-
         document.getElementById("blanks").innerHTML = blanks.join(" ");
-
+        document.getElementById("guess").innerHTML = guessBank.join(", ");
   }
   document.getElementById("instruction").innerHTML = message;
 };

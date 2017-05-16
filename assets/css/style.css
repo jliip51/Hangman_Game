@@ -46,8 +46,15 @@ html {
 	color: #212227;
 }
 
+#guess {
+	font-family: 'Arbutus', cursive;
+	font-size: 24px;
+	color: #212227;
+}
+
 #ContentRow {
 	height: 100%;
+
 }
 
 #img-div {
