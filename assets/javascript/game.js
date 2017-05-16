@@ -1,4 +1,5 @@
-var words = ["cactus", "horse", "whip", "pistol", "badge", "duel", "fight", "robber", "whiskey", "sheriff", "west", "chaps", "spurs", "saddle", "outlaw", "boots"];
+var words = ["cactus", "horse", "whip", "pistol", "badge", "duel", "fight", "robber", "whiskey", "gold", "coach", "jail",
+"sheriff", "west", "chaps", "spurs", "saddle", "outlaw", "boots", "cowboy", "wrangle", "lasso", "rodeo", "hat", "poker", ];
 var word = "";
 var blanks = [];
 var userGuess = "";
@@ -22,11 +23,13 @@ var remainingLetters = 0;
 
 	function setBoard(){
 		guessesLeft = 10;
-		document.getElementById("remaining").innerHTML = "Lives Remaining: " + guessesLeft;
+		document.getElementById("remaining").innerHTML = "Remaining Fuse: " + guessesLeft;
 		document.getElementById("start").style.visibility = "hidden";
+        document.getElementById("bullet").style.visibility = "hidden";
+        document.getElementById("boom").style.visibility = "hidden";
 		document.getElementById("img-tnt").style.visibility = "visible";
 		document.getElementById("instruction").innerHTML = "Let's Go Russle Up Some Letters";
-	}
+	};
 
 	document.getElementById("start").onclick = function() {
 		randomWord();
@@ -35,19 +38,16 @@ var remainingLetters = 0;
 		console.log(word);
 	};
 
-	document.onkeyup = function(e) {
-		play();
-	};
+	document.onkeyup = function(event) {
 
-	function play() {
 	userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 	message = "";
 
   	if (userGuess.length !== 1) {
       message ="One letter at a time Tex!";
   	} else {
-        // Update the game with the guess
-        var i=0; // an indexer into the array 
+
+        var i=0;
         for (i = 0; i < word.length; i++) {
             if (word[i] === userGuess) {
                 blanks[i] = userGuess;
@@ -63,31 +63,33 @@ var remainingLetters = 0;
         }
 
         if (message === "") {
-            message = "Ain't no " + userGuess + "'s" + " round these parts."
+            message = "Ain't No " + userGuess + "'s" + " Round These Parts.";
            	guessesLeft--;
-           	document.getElementById("remaining").innerHTML = "Remaining Lives: " + guessesLeft;
+           	document.getElementById("remaining").innerHTML = "Remaining Fuse: " + guessesLeft;
         }
 
         if (remainingLetters == 0) {
-            message = "You guessed " + word + "." + " Promoted to Marshall!";
+            message = "You Guessed " + word + "." + " Just In The Nick Of Time!";
             document.getElementById("btn_name").innerHTML = "Play Again";
             document.getElementById("start").style.visibility = "visible";
             document.getElementById("bullet").style.visibility = "visible";
-            remaining_guesses = 10;      	
+     	
         }
 
         if (guessesLeft === 0) {
         	message = "GAME OVER";
         	document.getElementById("btn_name").innerHTML = "Try Again";
+            document.getElementById("img-tnt").style.visibility = "hidden";
+            document.getElementById("boom").style.visibility = "visible";
             document.getElementById("start").style.visibility = "visible";
-            remaining_guesses =10;
+
         }
 
         document.getElementById("blanks").innerHTML = blanks.join(" ");
 
   }
   document.getElementById("instruction").innerHTML = message;
-}
+};
 
 
 

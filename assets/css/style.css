@@ -3,9 +3,9 @@ html {
 }
 
 #customMast {
-background-image: url(../images/west_masthead.png);
-margin-bottom: 0;
-background-color: #2a5a92;
+	background-image: url(../images/west_masthead.png);
+	margin-bottom: 0;
+	background-color: #2a5a92;
 }
 
 .jumbotron .container {
@@ -49,19 +49,36 @@ background-color: #2a5a92;
 #ContentRow {
 	height: 100%;
 }
+
+#img-div {
+	position: relative;
+}
+
 #img-tnt {
 	width: 150px;
 	height: auto;
+	transform: rotate(90deg);
+	position: absolute;
+	left: 300px;
 	visibility: hidden;
-	position: relative;
 }
 
 #bullet {
 	width: 60px;
 	height: auto;
+	top: 100px;
+	left: 480px;
 	position: absolute;
-	bottom: 100px;
-	left: 360px;
 	visibility: hidden;
 }
+
+#boom {
+	width: 400px;
+	height: auto;
+	position: absolute;
+	left: 200px;
+	visibility: hidden;
+}
+
+
 
