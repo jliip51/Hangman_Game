@@ -7,8 +7,6 @@ var guessBank = [];
 var message = "";
 var guessesLeft = 0;
 var remainingLetters = 0;
-var gunshot = document.querySelector("#gunshot");
-var boom = document.querySelector("#explosion");
 
 	function randomWord(){
 		word = words[Math.floor(Math.random() * words.length)];
@@ -47,7 +45,6 @@ var boom = document.querySelector("#explosion");
         document.getElementById("btn_name").innerHTML = "Play Again";
         document.getElementById("start").style.visibility = "visible";
         document.getElementById("bullet").style.visibility = "visible";
-
     };
 
     function lose() {
@@ -95,12 +92,10 @@ var boom = document.querySelector("#explosion");
         }
 
         if (remainingLetters == 0) {
-            gunshot.play();
             win();
      	}
 
         if (guessesLeft === 0) {
-            boom.play();
             lose();
         }
         document.getElementById("blanks").innerHTML = blanks.join(" ");

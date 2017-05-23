@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)file:///C:/Users/cjlsp/GT_BOOTCAMP/GT_HOMEWORK/Hangman_Game/index.html -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Wild West Hangman</title>
+	<link rel="shortcut icon" type="image/x-icon" href="file:///C:/Users/cjlsp/GT_BOOTCAMP/GT_HOMEWORK/Hangman_Game/assets/images/boot.ico">
+	<link rel="stylesheet" type="text/css" href="./Wild West Hangman_files/reset.css">
+	<link rel="stylesheet" href="./Wild West Hangman_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./Wild West Hangman_files/style.css">
+	<link href="./Wild West Hangman_files/css" rel="stylesheet">
+</head>
+
+<body>
+	<div id="customMast" class="jumbotron">
+		<div class="container">
+			<h1 id="customTitle" class="text-center">Wild West Hangman</h1>
+			<br>
+			<button id="start" type="button" class="btn btn-success btn-lg center-block" style="visibility: hidden;"><span id="btn_name">Try Again</span></button>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div id="messageRow" class="row">
+			<p id="instruction" class="text-center">Ain't No 's Round These Parts.</p>
+		</div>
+		<div id="contentRow" class="row">
+		 	<div class="col-sm-6">
+				<p id="blanks" class="text-center">_ _ _ _ _ _</p>
+				<br>
+				<p id="remaining" class="text-center">Remaining Fuse: 8</p>
+				<br>
+				<p id="guess" class="text-center">s, </p>
+			</div>
+			<div class="col-sm-6">
+				<div id="img-div">
+					<img id="img-tnt" class="center-block" src="./Wild West Hangman_files/tnt.png" alt="tnt-dynomite" style="visibility: visible;">
+					<img id="bullet" class="center-block" src="./Wild West Hangman_files/bullet_hole.png" alt="bullet hole" style="visibility: hidden;">
+					<img id="boom" class="center-block" src="./Wild West Hangman_files/boom.png" alt="explosion" style="visibility: hidden;">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<audio loop="loop" autoplay="autoplay">
+		<source id="openMusic" src="assets/audio/gunfight.mp3" type="audio/mpeg">
+	</audio>
+
+<script type="text/javascript" src="./Wild West Hangman_files/game.js.download"></script>
+
+
+</body></html>
