@@ -7,6 +7,7 @@ var guessBank = [];
 var message = "";
 var guessesLeft = 0;
 var remainingLetters = 0;
+var gameend = false;
 var gunshot = document.querySelector("#gunshot");
 var boom = document.querySelector("#explosion");
 
@@ -27,6 +28,7 @@ var boom = document.querySelector("#explosion");
 	function setBoard(){
 		guessesLeft = 10;
         guessBank.length = 0;
+        gameend = false;
 		document.getElementById("remaining").innerHTML = "Remaining Fuse: " + guessesLeft;
         document.getElementById("guess").innerHTML = guessBank;
 		document.getElementById("start").style.visibility = "hidden";
@@ -62,7 +64,6 @@ var boom = document.querySelector("#explosion");
 		randomWord();
 		setBlanks();
 		setBoard();
-		console.log(word);
 	};
 
 	document.onkeyup = function(event) {
@@ -71,8 +72,8 @@ var boom = document.querySelector("#explosion");
     guessBank.push(userGuess);
 	message = "";
 
-  	if (userGuess.length !== 1) {
-      message ="One letter at a time Tex!";
+  	if (gameend === true) {
+      message ="You Might Want to Reload First Cowboy";
   	} else {
 
         var i=0;
@@ -96,10 +97,12 @@ var boom = document.querySelector("#explosion");
 
         if (remainingLetters == 0) {
             gunshot.play();
+            gameend = true;
             win();
      	}
 
         if (guessesLeft === 0) {
+            gameend = true;
             boom.play();
             lose();
         }
